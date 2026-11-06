@@ -559,3 +559,65 @@ code { font-size: .9em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.edition-intro { max-width: 640px; padding-top: 72px; }
+
+.edition-intro > p:last-child {
+  margin-top: 12px;
+  color: #456051;
+}
+
+.edition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.edition {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto auto;
+  justify-items: start;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--paper-line);
+  border-radius: 14px;
+  background: #f9fbf6;
+}
+
+.edition-native { background: #e6efe3; }
+
+.edition-label {
+  color: #3c654b;
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.edition h3 {
+  margin: 5px 0 8px;
+  font-size: clamp(23px, 3vw, 30px);
+  letter-spacing: -.03em;
+}
+
+.edition > p:not(.edition-label), .edition dd, .edition-bench { color: #456051; }
+
+.edition dl {
+  width: 100%;
+  margin: 18px 0;
+  padding-top: 13px;
+  border-top: 1px solid var(--paper-line);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px 14px;
+  font-size: 14px;
+}
+
+.edition dt { font-weight: 680; }
+.edition dd { margin: 0; }
+.edition-note { margin-top: 9px; font-size: 12px; }
+.edition-bench { margin-top: 14px; max-width: 790px; font-size: 13px; }
+.steps p + p, .answers p + p { margin-top: 7px; }
+
+@media (max-width: 760px) {
+  .edition-intro { padding-top: 49px; }
+  .edition-grid { grid-template-columns: minmax(0, 1fr); }
+}

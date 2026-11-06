@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101b16">
-  <meta name="description" content="Leia os áudios do WhatsApp Web com o Verbum. Transcrição no navegador, com texto completo abaixo da mensagem.">
+  <meta name="description" content="Leia os áudios do WhatsApp Web com o Verbum. Transcrição local no navegador ou com motor nativo para Mac.">
   <meta property="og:title" content="Verbum — transcrição para WhatsApp Web">
-  <meta property="og:description" content="Transcreva mensagens de voz no navegador e leia o texto na própria conversa.">
+  <meta property="og:description" content="Transcreva mensagens de voz no seu computador e leia o texto na própria conversa.">
   <link rel="icon" type="image/svg+xml" href="assets/verbum.svg">
   <link rel="stylesheet" href="styles.css">
   <script src="demo.js" defer></script>
@@ -25,7 +25,7 @@
         <a href="#instalacao">Instalação</a>
         <a href="#perguntas">Perguntas</a>
       </nav>
-      <a class="nav-download" href="assets/verbum-chrome-v0.4.4.zip" download>Baixar <span aria-hidden="true">↓</span></a>
+      <a class="nav-download" href="#instalacao">Escolher versão <span aria-hidden="true">↓</span></a>
     </div>
   </header>
 
@@ -35,15 +35,14 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Extensão para Chrome e Arc</p>
           <h1>Leia os áudios do <em>WhatsApp Web.</em></h1>
-          <p class="intro">O Verbum transcreve mensagens de voz no navegador e mostra o texto completo logo abaixo do áudio.</p>
+          <p class="intro">O Verbum transcreve mensagens de voz no seu computador e mostra o texto completo logo abaixo do áudio.</p>
           <div class="hero-actions">
-            <a class="button primary" href="assets/verbum-chrome-v0.4.4.zip" download>
+            <a class="button primary" href="#instalacao">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4"/></svg>
-              Baixar extensão
+              Escolher versão
             </a>
-            <a class="button secondary" href="#instalacao">Como instalar</a>
           </div>
-          <p class="release">Versão 0.4.4 <span aria-hidden="true">·</span> ZIP de 8,5 MB <span aria-hidden="true">·</span> Instalação manual</p>
+          <p class="release">Extensão para navegador <span aria-hidden="true">·</span> Motor nativo para Mac em beta</p>
         </div>
 
         <figure class="example">
@@ -102,41 +101,74 @@
         <article>
           <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.6 8 7 10 4.4-2 7-5.6 7-10V6l-7-3Zm-3 9 2 2 4-4"/></svg></span>
           <h2>Processamento local</h2>
-          <p>O modelo roda no navegador. Nenhum áudio é enviado a um serviço de transcrição.</p>
+          <p>As duas versões transcrevem no seu computador e liberam a memória do modelo após 35 segundos com a fila vazia.</p>
         </article>
       </div>
     </section>
 
     <section class="install light-section" id="instalacao">
-      <div class="shell install-grid">
+      <div class="shell">
+        <div class="edition-intro">
+          <p class="eyebrow">Instalação</p>
+          <h2>Escolha sua versão.</h2>
+          <p>Nas duas versões, você lê a transcrição na conversa do WhatsApp Web. A diferença é onde o Whisper roda.</p>
+        </div>
+        <div class="edition-grid">
+          <article class="edition">
+            <p class="edition-label">Chrome e Arc · 0.4.4</p>
+            <h3>No navegador</h3>
+            <p>Instale só a extensão. O Whisper roda no navegador e baixa o modelo no primeiro uso.</p>
+            <dl>
+              <dt>Modelo</dt><dd>Turbo com GPU compatível ou CPU. Small para reduzir o uso de memória.</dd>
+              <dt>Memória</dt><dd>O Turbo usa mais RAM enquanto está carregado. Os pesos ficam no cache para o próximo áudio.</dd>
+            </dl>
+            <a class="button dark-button" href="assets/verbum-chrome-v0.4.4.zip" download>Baixar extensão (.zip)</a>
+            <p class="edition-note">8,5 MB · Instalação manual</p>
+          </article>
+          <article class="edition edition-native">
+            <p class="edition-label">Mac com Apple Silicon · 0.5.1 beta</p>
+            <h3>Nativo para Mac</h3>
+            <p>Use a extensão com um motor local que roda o Whisper Turbo via Metal. O instalador já inclui o modelo.</p>
+            <dl>
+              <dt>Modelo</dt><dd>Whisper Turbo Q5 em um processo separado do navegador.</dd>
+              <dt>Memória</dt><dd>Menor uso de RAM com o Turbo carregado nos testes no Mac. O motor encerra quando fica ocioso.</dd>
+            </dl>
+            <a class="button dark-button" href="https://github.com/weslemvitor/verbum/releases/download/native-v0.5.1/verbum-native-v0.5.1-macos-arm64.pkg">Baixar instalador beta (.pkg)</a>
+            <p class="edition-note">552 MB · Sem assinatura Developer ID. <a href="#instalador-beta">Veja os requisitos</a>.</p>
+          </article>
+        </div>
+        <p class="edition-bench">Em testes separados no Mac M4, o áudio da demonstração levou cerca de 22 s no beta nativo e 27 s no navegador ao recarregar o Turbo do cache. Com o modelo já carregado, o navegador levou 3 s. Os tempos variam com a máquina e o áudio.</p>
+      </div>
+      <div class="shell install-grid" id="passos">
         <div class="install-intro">
-          <p class="eyebrow">Instalação manual</p>
-          <h2>Instale em três passos.</h2>
-          <p>O pacote funciona no Chrome e no Arc. Depois de carregar a extensão, basta abrir o WhatsApp Web.</p>
-          <a class="button dark-button" href="assets/verbum-chrome-v0.4.4.zip" download>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4"/></svg>
-            Baixar Verbum
-          </a>
+          <p class="eyebrow">Passo a passo</p>
+          <h2>Como instalar.</h2>
+          <p>Escolha uma das versões e carregue a extensão no navegador para usar o Verbum no WhatsApp Web.</p>
         </div>
         <ol class="steps">
           <li>
             <span class="step-number" aria-hidden="true">01</span>
-            <div><h3>Baixe e descompacte o ZIP</h3><p>Guarde a pasta <code>verbum</code> em um local que você consiga encontrar depois.</p></div>
+            <div>
+              <h3>Prepare a pasta da extensão</h3>
+              <p><strong>No navegador.</strong> Descompacte o ZIP e guarde a pasta <code>verbum</code>.</p>
+              <p><strong>Nativo.</strong> Execute o instalador. Ele coloca o motor e a pasta <code>verbum-nativo</code> no Mac.</p>
+            </div>
           </li>
           <li>
             <span class="step-number" aria-hidden="true">02</span>
             <div>
               <h3>Carregue a extensão</h3>
-              <p>Abra a página de extensões, ative o <strong>Modo do desenvolvedor</strong> e escolha <strong>Carregar sem compactação</strong>. Selecione a pasta <code>verbum</code>.</p>
+              <p>Abra a página de extensões, ative o <strong>Modo do desenvolvedor</strong> e escolha <strong>Carregar sem compactação</strong>. Selecione a pasta <code>verbum</code> ou, para o nativo, abra o caminho abaixo com <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd> no seletor de pastas.</p>
               <div class="address-buttons" aria-label="Endereços da página de extensões">
                 <button type="button" data-copy="chrome://extensions" aria-label="Copiar endereço das extensões do Chrome"><code>chrome://extensions</code><span aria-hidden="true">⧉</span></button>
                 <button type="button" data-copy="arc://extensions" aria-label="Copiar endereço das extensões do Arc"><code>arc://extensions</code><span aria-hidden="true">⧉</span></button>
+                <button type="button" data-copy="/Library/Application Support/Verbum/verbum-nativo" aria-label="Copiar caminho da extensão nativa"><code>Pasta da extensão nativa</code><span aria-hidden="true">⧉</span></button>
               </div>
             </div>
           </li>
           <li>
             <span class="step-number" aria-hidden="true">03</span>
-            <div><h3>Transcreva um áudio</h3><p>Recarregue o <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp Web</a> e clique em <strong>Transcrever</strong> abaixo de uma mensagem de voz.</p></div>
+            <div><h3>Transcreva um áudio</h3><p>Se estiver trocando de versão, desative a extensão anterior. Recarregue o <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp Web</a> e clique em <strong>Transcrever</strong> abaixo de uma mensagem de voz.</p></div>
           </li>
         </ol>
       </div>
@@ -146,9 +178,14 @@
       <div class="shell faq-grid">
         <div><p class="eyebrow">Antes de usar</p><h2>Perguntas frequentes</h2></div>
         <div class="answers">
-          <details open>
-            <summary>Por que o primeiro uso demora?</summary>
-            <p>O navegador baixa o modelo Whisper antes de transcrever. O Turbo na GPU usa cerca de 1,5 GB de pesos. Quando a fila fica vazia por 35 segundos, o Verbum libera a memória do modelo. Os pesos ficam no cache para o próximo áudio. A opção Small consome menos memória.</p>
+          <details open id="instalador-beta">
+            <summary>O que preciso para usar o nativo?</summary>
+            <p>Um Mac com chip Apple, macOS 26 ou posterior e Chrome ou Arc. Você precisa de permissão de administrador e cerca de 1 GB livre. O instalador coloca o motor, o modelo e a extensão no Mac. Você carrega a extensão uma vez na página de extensões.</p>
+            <p>O instalador beta ainda está sem assinatura Developer ID e sem notarização. O macOS pode bloquear a abertura. <a href="https://support.apple.com/pt-br/102445">Entenda o aviso do macOS</a>.</p>
+          </details>
+          <details>
+            <summary>Por que o primeiro áudio demora?</summary>
+            <p>No navegador, o Turbo com GPU baixa cerca de 1,5 GB de pesos no primeiro uso. No nativo, os pesos já vêm no instalador. Nas duas versões, o próximo áudio após 35 segundos de inatividade recarrega o modelo do disco.</p>
           </details>
           <details>
             <summary>Quando a transcrição automática funciona?</summary>
