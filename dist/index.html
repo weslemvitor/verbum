@@ -126,18 +126,18 @@
             <p class="edition-note">8,5 MB · Instalação manual</p>
           </article>
           <article class="edition edition-native">
-            <p class="edition-label">Mac com Apple Silicon · 0.5.1 beta</p>
+            <p class="edition-label">Mac com Apple Silicon · 0.5.2 beta</p>
             <h3>Nativo para Mac</h3>
-            <p>Use a extensão com um motor local que roda o Whisper Turbo via Metal. O instalador já inclui o modelo.</p>
+            <p>Use a extensão com um motor local que roda o Whisper Turbo via Metal. O modelo de 574 MB é baixado no primeiro áudio.</p>
             <dl>
               <dt>Modelo</dt><dd>Whisper Turbo Q5 em um processo separado do navegador.</dd>
               <dt>Memória</dt><dd>Menor uso de RAM com o Turbo carregado nos testes no Mac. O motor encerra quando fica ocioso.</dd>
             </dl>
-            <a class="button dark-button" href="https://github.com/weslemvitor/verbum/releases/download/native-v0.5.1/verbum-native-v0.5.1-macos-arm64.pkg">Baixar instalador beta (.pkg)</a>
-            <p class="edition-note">552 MB · Sem assinatura Developer ID. <a href="#instalador-beta">Veja os requisitos</a>.</p>
+            <a class="button dark-button" href="https://github.com/weslemvitor/verbum/releases/download/native-v0.5.2/verbum-native-v0.5.2-macos-arm64.pkg">Baixar instalador beta (.pkg)</a>
+            <p class="edition-note">18,3 MB · Sem assinatura Developer ID. <a href="#instalador-beta">Veja os requisitos</a>.</p>
           </article>
         </div>
-        <p class="edition-bench">Em testes separados no Mac M4, o áudio da demonstração levou cerca de 22 s no beta nativo e 27 s no navegador ao recarregar o Turbo do cache. Com o modelo já carregado, o navegador levou 3 s. Os tempos variam com a máquina e o áudio.</p>
+        <p class="edition-bench">Em testes separados no Mac M4 com os pesos já baixados, o áudio da demonstração levou cerca de 22 s no beta nativo e 27 s no navegador ao recarregar o Turbo do cache. Com o modelo já carregado, o navegador levou 3 s. Os tempos variam com a máquina e o áudio.</p>
       </div>
       <div class="shell install-grid" id="passos">
         <div class="install-intro">
@@ -180,12 +180,12 @@
         <div class="answers">
           <details open id="instalador-beta">
             <summary>O que preciso para usar o nativo?</summary>
-            <p>Um Mac com chip Apple, macOS 26 ou posterior e Chrome ou Arc. Você precisa de permissão de administrador e cerca de 1 GB livre. O instalador coloca o motor, o modelo e a extensão no Mac. Você carrega a extensão uma vez na página de extensões.</p>
+            <p>Um Mac com chip Apple, macOS 26 ou posterior e Chrome ou Arc. Você precisa de permissão de administrador e cerca de 1 GB livre. O instalador coloca o motor e a extensão no Mac. Você carrega a extensão uma vez na página de extensões.</p>
             <p>O instalador beta ainda está sem assinatura Developer ID e sem notarização. O macOS pode bloquear a abertura. <a href="https://support.apple.com/pt-br/102445">Entenda o aviso do macOS</a>.</p>
           </details>
           <details>
             <summary>Por que o primeiro áudio demora?</summary>
-            <p>No navegador, o Turbo com GPU baixa cerca de 1,5 GB de pesos no primeiro uso. No nativo, os pesos já vêm no instalador. Nas duas versões, o próximo áudio após 35 segundos de inatividade recarrega o modelo do disco.</p>
+            <p>No navegador, o Turbo com GPU baixa cerca de 1,5 GB de pesos no primeiro uso. No nativo, o Verbum baixa 574 MB no primeiro áudio e guarda os pesos no Mac para os próximos, que podem ser transcritos offline. Nas duas versões, após 35 segundos de inatividade, o próximo áudio recarrega o modelo do disco.</p>
           </details>
           <details>
             <summary>Quando a transcrição automática funciona?</summary>
