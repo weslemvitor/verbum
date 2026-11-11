@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "browser": {
+    "version": "0.4.7",
+    "downloadUrl": "https://verbum-liart.vercel.app/assets/verbum-chrome-v0.4.7.zip"
+  },
+  "native": {
+    "version": "0.5.5",
+    "engineVersion": "0.5.5",
+    "downloadUrl": "https://github.com/weslemvitor/verbum/releases/download/native-v0.5.5/verbum-native-v0.5.5-macos-arm64.pkg"
+  }
+}
